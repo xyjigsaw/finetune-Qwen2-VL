@@ -294,7 +294,7 @@ class LazySupervisedDataset(Dataset):
         texts = [self.processor.apply_chat_template(msg, tokenize=False, add_generation_prompt=False) for msg in messages]
 
         image_inputs, video_inputs = process_vision_info(messages)
-        inputs = processor(
+        inputs = self.processor(
             text=texts,
             images=image_inputs,
             videos=video_inputs,
